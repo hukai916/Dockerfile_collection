@@ -1,0 +1,7 @@
+name: conda_annotation
+
+channels:
+  - bioconda
+
+dependencies:
+  - bedtools = 2.30.0
