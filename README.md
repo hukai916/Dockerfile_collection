@@ -1,2 +1,1 @@
-# Dockerfiles
-# Dockerfile_collection
+# Dockerfile collections
