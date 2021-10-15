@@ -1,0 +1,11 @@
+name: conda_bwa
+
+channels:
+  - bioconda
+
+dependencies:
+  - bwa = 0.7.17
+  - samtools = 1.11
+  - pip = 21.0.1
+  - pip:
+    - multiqc == 1.6

@@ -1,0 +1,7 @@
+name: conda_qualimap
+
+channels:
+  - bioconda
+
+dependencies:
+  - qualimap = 2.2.2
