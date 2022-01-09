@@ -239,6 +239,44 @@ RUN R -e 'install.packages("roxygen2")'
 RUN R -e 'reticulate::install_miniconda()'
 RUN R -e 'tensorflow::install_tensorflow()'
 # Below is to install CRISPRseek_1.32.5 for version 0.3
+# Below is to create a py2 env containing required packages for rule.set 2016: for version 0.3, we can also simply use conda to set up the env.
+RUN R -e 'reticulate::conda_create("py2", "python=2.7.15")'
+RUN R -e 'reticulate::conda_install("py2", "numpy=1.14.0")' # newer numpy gave out annoying deprecation warnings
+RUN R -e 'reticulate::conda_install("py2", "pandas=0.22.0")' # newer version gave annoying deprecation warnings
+# RUN R -e 'reticulate::conda_install("py2", "pickle", pip = TRUE)' # pickle is standard, no need to install
+RUN R -e 'reticulate::conda_install("py2", "scipy", pip = TRUE)'
+RUN R -e 'reticulate::conda_install("py2", "scikit-learn==0.16.1", pip = TRUE)'
+RUN R -e 'reticulate::conda_install("py2", "matplotlib", pip = TRUE)'
+RUN R -e 'reticulate::conda_install("py2", "biopython")'
 COPY CRISPRseek_1.35.2.tar.gz /tmp
 RUN cd /tmp \
   && R -e 'install.packages("CRISPRseek_1.35.2.tar.gz", repo=NULL, type="source")'
+
+
+# Also install a system Python env? So that "py_discover_config()$version" can be used directly?
+# Seems redundant given that we have above already.
+# ARG CONDA_VERSION=py38_4.9.2
+# ARG CONDA_MD5=122c8c9beb51e124ab32a0fa6426c656
+#
+# RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O miniconda.sh && \
+#     echo "${CONDA_MD5}  miniconda.sh" > miniconda.md5 && \
+#     if ! md5sum --status -c miniconda.md5; then exit 1; fi && \
+#     mkdir -p /opt && \
+#     sh miniconda.sh -b -p /opt/conda && \
+#     rm miniconda.sh miniconda.md5 && \
+#     ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
+#     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
+#     echo "conda activate base" >> ~/.bashrc && \
+#     find /opt/conda/ -follow -type f -name '*.a' -delete && \
+#     find /opt/conda/ -follow -type f -name '*.js.map' -delete && \
+#     /opt/conda/bin/conda clean -afy
+# ENV PATH /opt/conda/bin:$PATH
+#
+# RUN conda create -n py2 python=2.7.15
+# RUN conda install -n py2 numpy pandas biopython
+# RUN pip install: to be added
+# # activate py2 env when login: https://pythonspeed.com/articles/activate-conda-dockerfile/
+# RUN echo "conda activate py2" >> ~/.bashrc
+# ENV PATH /opt/conda/envs/py2/bin:$PATH
+# # Though added to PATH, it still can't be deteced by py_discover_config()
+# SHELL ["/bin/bash", "--login", "-c"]
