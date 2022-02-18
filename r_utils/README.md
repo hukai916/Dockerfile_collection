@@ -14,7 +14,7 @@ docker pull hukai916/r_utils:0.1
 SAMtools
 gawk
 
-## Installed R packages
+## Installed R packages (version 0.1)
 RUN R -e 'install.packages(BiocManager")'
 RUN R -e 'install.packages(devtools")'
 RUN R -e 'install.packages(collections")'
