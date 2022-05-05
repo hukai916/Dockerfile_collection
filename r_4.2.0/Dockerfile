@@ -97,3 +97,8 @@ RUN R -e 'BiocManager::install("org.Mm.eg.db")'
 
 # for pdflatex to be installed correctly (reason unknown)
 RUN apt purge -y texlive-fonts-extra && apt install -y texlive-fonts-extra
+
+# for testing only: v0.2
+RUN R -e 'BiocManager::install("BSgenome.Hsapiens.UCSC.hg38")'
+RUN R -e 'BiocManager::install("TxDb.Hsapiens.UCSC.hg38.knownGene")'
+RUN R -e 'install.packages("remotes")'

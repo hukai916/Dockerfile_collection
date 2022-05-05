@@ -4,6 +4,12 @@ Ubuntu-16.04
 ## How to download:
 docker pull hukai916/r_4.2.0:0.1
 ## base R: 4.2.0
+## added in v0.2:
+RUN R -e 'BiocManager::install("BSgenome.Hsapiens.UCSC.hg38")'
+
+RUN R -e 'BiocManager::install("TxDb.Hsapiens.UCSC.hg38.knownGene")'
+
+RUN R -e 'install.packages("remotes")'
 
 ## Building notes:
 1.  All packages required to run "R CMD check/build GUIDEseq/CRISPRseek" have been installed with this image build.
