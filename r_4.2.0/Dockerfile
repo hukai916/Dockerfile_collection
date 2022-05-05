@@ -97,7 +97,3 @@ RUN R -e 'BiocManager::install("org.Mm.eg.db")'
 
 # for pdflatex to be installed correctly (reason unknown)
 RUN apt purge -y texlive-fonts-extra && apt install -y texlive-fonts-extra
-
-# ‘GenomicRanges’, ‘BiocGenerics’, ‘BiocParallel’, ‘Biostrings’, ‘CRISPRseek’, ‘ChIPpeakAnno’, ‘data.table’, ‘matrixStats’, ‘BSgenome’, ‘IRanges’, ‘S4Vectors’, ‘GenomicAlignments’, ‘GenomeInfoDb’, ‘Rsamtools’, ‘hash’, ‘limma’, ‘dplyr’, ‘GenomicFeatures’
-
-# ‘CRISPRseek’, ‘data.table’, ‘hash’, ‘limma’ are not available for package ‘GUIDEseq’
