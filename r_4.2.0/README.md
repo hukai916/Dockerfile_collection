@@ -10,4 +10,5 @@ docker pull hukai916/r_4.2.0:0.1
 2.  The pdflatex is required to run "R CMD build", it is tricky to install though. The following works: note that you likely need to remove and purge pre-existing texlive-fonts-extra first
 
 RUN R -e 'tinytex::install_tinytex()' # may not be a must
+
 RUN apt purge -y texlive-fonts-extra && apt install -y texlive-fonts-extra
