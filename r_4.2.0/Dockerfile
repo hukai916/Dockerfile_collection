@@ -102,3 +102,6 @@ RUN apt purge -y texlive-fonts-extra && apt install -y texlive-fonts-extra
 RUN R -e 'BiocManager::install("BSgenome.Hsapiens.UCSC.hg38")'
 RUN R -e 'BiocManager::install("TxDb.Hsapiens.UCSC.hg38.knownGene")'
 RUN R -e 'install.packages("remotes")'
+
+# for rendering .Rmd with rmarkdown to pdf: v0.3
+RUN apt purge -y texlive-fonts-extra && apt install -y pandoc pandoc-citeproc texlive-extra-utils

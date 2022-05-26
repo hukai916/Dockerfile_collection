@@ -10,6 +10,8 @@ RUN R -e 'BiocManager::install("BSgenome.Hsapiens.UCSC.hg38")'
 RUN R -e 'BiocManager::install("TxDb.Hsapiens.UCSC.hg38.knownGene")'
 
 RUN R -e 'install.packages("remotes")'
+## added in v0.3:
+RUN apt purge -y texlive-fonts-extra && apt install -y pandoc pandoc-citeproc texlive-extra-utils # for rendering .Rmd with rmarkdown to pdf: v0.3
 
 ## Building notes:
 1.  All packages required to run "R CMD check/build GUIDEseq/CRISPRseek" have been installed with this image build.
