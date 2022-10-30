@@ -9,3 +9,4 @@ dependencies:
   - pip = 21.0.1
   - pip:
     - multiqc == 1.6
+  - bedtools = 2.30.0
