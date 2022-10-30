@@ -56,3 +56,10 @@ RUN conda install -c bioconda samtools=1.13
 RUN apt-get update -q && apt-get install libcurl3
 COPY blat /bin/
 ENV PATH="${PATH}:/bin"
+
+# v0.2: install pysam, biopython,
+RUN conda install -c conda-forge biopython
+RUN conda install -c bioconda pysam
+
+# v0.2.1 install bedtools
+RUN conda install -c bioconda bedtools=2.30.0
