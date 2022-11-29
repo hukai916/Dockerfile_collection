@@ -5,6 +5,8 @@
 1.  DNAscent: https://github.com/MBoemo/DNAscent/tree/3.1.2
 2.  bonito: https://github.com/nanoporetech/bonito
 
+## v0.2 (TODO)
+1.  Add support for GPU
 
 ## How to use:
 ### With Docker on Mac (interactive mode):
