@@ -11,6 +11,7 @@ docker run -it hukai916/dorado:0.1
 ## To use as Singularity image:
 ```
 singularity pull docker://hukai916/dorado:0.1
+singularity shell dorado_0.1.sif
 ```
 If on SCI (for UMass users), you can use the shared image, simply:
 ```
