@@ -11,6 +11,7 @@ Then, run it interactively:
 ```
 docker run -it hukai916/qalign:0.1
 ```
+- Note that the `QAlign` folder is under the `./` directory.
 
 Or non-interactively:
 ```
@@ -25,8 +26,8 @@ Then, run it interactively:
 ```
 singularity shell qalign_0.1.sif
 ```
-- Note that the `QAlign` folder is under the `./` directory.
-
+- Note that the `QAlign` folder is under the `/` directory.
+- 
 Or non-interactively:
 ```
 singularity exec qalign_0.1.sif python /QAlign/qalign/main.py convert --input_fasta /QAlign/qalign/test_samples/reads.fasta --outdir ./output/ --qlevel 2 --rc 1 --kmerpath /QAlign/qalign/kmermap_models/r9.4_6mer_nucleotide_template_model.txt
