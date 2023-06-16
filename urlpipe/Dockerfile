@@ -11,3 +11,9 @@ RUN conda install -c conda-forge matplotlib
 RUN conda install -c anaconda pandas
 
 RUN conda install -c bioconda bwa
+
+# v0.3: umi_tools can't be installed properly
+# RUN pip install umi_tools
+
+# v0.3
+RUN pip install scutls==0.2.6
