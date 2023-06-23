@@ -17,3 +17,6 @@ RUN conda install -c bioconda bwa
 
 # v0.3
 RUN pip install scutls==0.2.6
+
+# v0.4 
+RUN conda install -c bioconda minimap2
