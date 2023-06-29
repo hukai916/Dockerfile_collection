@@ -26,3 +26,6 @@ RUN pip install scutls==0.2.7
 
 # v0.6 
 RUN apt-get update -q && apt-get install -y bc
+
+# v0.7
+RUN pip install scutls==0.2.8
