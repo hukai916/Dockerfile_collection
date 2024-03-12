@@ -6,6 +6,9 @@ docker pull hukai916/dnascent:4.0.1
 singularity pull docker://hukai916/dnascent:4.0.1
 ```
 
+## Known issues
+1. The Docker image was built on Intel-chip MacBook, it can not be properly deployed on M-chip MacBook.
+
 ## DNAscent GitHub repo: https://github.com/MBoemo/DNAscent
 
 ## Known building issues:
