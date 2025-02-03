@@ -12,12 +12,12 @@ source /lsf/conf/profile.lsf
 ## Docker:
 ```
 # For ARM chips:
-docker pull hukai816/ccount:0.1
-docker run -it hukai816/ccount:0.1
+docker pull hukai916/ccount:0.1
+docker run -it hukai916/ccount:0.1
 
 # For AMD chips:
-docker pull hukai816/ccount_amd64:0.1
-docker run -it hukai816/ccount_amd64:0.1
+docker pull hukai916/ccount_amd64:0.1
+docker run -it hukai916/ccount_amd64:0.1
 ```
 
 ## Singularity:
