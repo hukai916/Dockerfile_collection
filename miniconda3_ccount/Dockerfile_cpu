@@ -1,0 +1,10 @@
+FROM	continuumio/miniconda3
+
+ADD environment_cpu_sci_work.yml /tmp/environment.yml
+
+RUN conda env create -f /tmp/environment.yml
+RUN apt-get update && apt-get install -y libgl1-mesa-glx graphviz
+# for opencv, imgaug
+
+RUN echo "source activate $(head -1 /tmp/environment.yml | cut -d ' ' -f 2)" > ~/.bashrc
+# Build note: docker build --platform linux/amd64 -t hukai916/ccount_cpu:0.1 .
