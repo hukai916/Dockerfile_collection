@@ -26,6 +26,7 @@ docker run --platform linux/amd64 -it hukai916/ccount_gpu:0.1
 4. `environment_gpu_sci_work.yml`: yaml exported from the SCI env built with 2)
 
 ```
+docker build --platform linux/amd64 -t hukai916/ccount_gpu:0.1 .
 export PATH=~/.conda/envs/ccount/bin/:$PATH
 pip install aicspylibczi>=3.0.5
 ```
